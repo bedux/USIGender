@@ -16,7 +16,7 @@
 </head>
     
     
- <body>
+ <body ng-controller="mainCtrl">
     <!-- Simple header with fixed tabs. -->
     <div class="mdl-layout mdl-js-layout mdl-layout--overlay-drawer-button mdl-layout--fixed-header
                 mdl-layout--fixed-tabs">
@@ -37,10 +37,10 @@
             <li class="mdl-menu__item">italiano</li>
             <li class="mdl-menu__item">english</li>
         </ul>
-        <button  class="mdl-button mdl-js-button mdl-button--icon">
+        <button  class="mdl-button mdl-js-button mdl-button--icon" ng-click="changeFontSize(-2)">
             <i class="material-icons" style="font-size:0.6em;">text_format</i>        
         </button>
-        <button  class="mdl-button mdl-js-button mdl-button--icon">
+        <button  class="mdl-button mdl-js-button mdl-button--icon" ng-click="changeFontSize(2)">
             <i class="material-icons">text_format</i>        
         </button>
      
@@ -70,17 +70,16 @@
           
         <section id='mainContainer'>
 
-            <aside ng-controller="mainCtrl">
-<!--
+            <aside >
                 <p>Categories</p>
                 <div ng-repeat="category in categories track by $index" >
                     <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect margin-bt" for="{{category}}">
                         <input type="checkbox" id="{{category}}" class="mdl-checkbox__input"  />
-                        <span class="mdl-checkbox__label checkbox" >{{category}}</span>
-                        <span class="float-r">123</span>
+                        <span class="mdl-checkbox__label checkbox fontResizable" >{{category}}</span>
+                        <span class="float-r fontResizable">123</span>
                     </label>
                 </div>
--->
+<!--
                     <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">
                       <thead>
                         <tr>
@@ -96,6 +95,7 @@
                         
                       </tbody>
                     </table>
+-->
             </aside>
             
             

@@ -39,7 +39,6 @@ body {
     margin-bottom: 20px;
     word-wrap: break-word;
     display: inline-block;
-    width: 190px;
     overflow:hidden;
     text-overflow:ellipsis;
     white-space: nowrap; 
@@ -79,14 +78,16 @@ aside{
    color:    #727272;
 }
 
+.fontResizable{
+    font-size: 
+}
+
 @media screen and (max-width: 1200px) {
     aside{
         width: 200px;
         float: left;
     }  
-    .checkbox{
-        width: 140px;
-    }
+
     #pageContainer{
         width: calc(100% - 252px);
     }
