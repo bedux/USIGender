@@ -29,9 +29,22 @@
 
            <input id="searchBar" type="search" placeholder='search'>
            <nav class="mdl-navigation">
-        <a class="mdl-navigation__link" href="">Link</a>
-        <a class="mdl-navigation__link" href="">Link</a>
-    
+               
+        <button id="menu-speed" class="mdl-button mdl-js-button mdl-button--icon">
+            <i class="material-icons">language</i>
+        </button>
+        <ul class="mdl-menu mdl-js-menu" for="menu-speed">
+            <li class="mdl-menu__item">italiano</li>
+            <li class="mdl-menu__item">english</li>
+        </ul>
+        <button  class="mdl-button mdl-js-button mdl-button--icon">
+            <i class="material-icons" style="font-size:0.6em;">text_format</i>        
+        </button>
+        <button  class="mdl-button mdl-js-button mdl-button--icon">
+            <i class="material-icons">text_format</i>        
+        </button>
+     
+
       </nav>
         </div>
           
@@ -58,18 +71,36 @@
         <section id='mainContainer'>
 
             <aside ng-controller="mainCtrl">
-                <p>Category</p>
-                <div ng-repeat="category in categories track by $index">
+<!--
+                <p>Categories</p>
+                <div ng-repeat="category in categories track by $index" >
                     <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect margin-bt" for="{{category}}">
                         <input type="checkbox" id="{{category}}" class="mdl-checkbox__input"  />
                         <span class="mdl-checkbox__label checkbox" >{{category}}</span>
                         <span class="float-r">123</span>
                     </label>
                 </div>
+-->
+                    <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">
+                      <thead>
+                        <tr>
+                          <th class="mdl-data-table__cell--non-numeric">categories</th>
+                          <th>results</th> 
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr ng-repeat="category in categories track by $index">
+                          <td class="mdl-data-table__cell--non-numeric">{{category}}</td>
+                          <td>888</td>
+                        </tr>
+                        
+                      </tbody>
+                    </table>
             </aside>
             
+            
             <section id="pageContainer">
-                <!--    insert page here        -->
+<!--    insert page here        -->
                 test
             
             </section>
