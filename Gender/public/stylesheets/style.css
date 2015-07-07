@@ -1,7 +1,111 @@
 body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
+#searchIcon{
+    position: absolute;
+    top: 20px;
+    left: 215px
+}
+#searchBar{
+    -webkit-appearance: textfield;
+    background-position: 7px 7px;
+    background-repeat: no-repeat;
+    margin: 0 10px 0 20px;  
+    padding: 8px 8px 8px 35px;
+    box-shadow: 0px 1px 1.5px rgba(0,0,0,0.06),0px 1px 1px rgba(0,0,0,0.12);
+	background: #FFB74D ;
+    width: calc(100% - 270px);
+	height: 36px;
+	-webkit-transition: all 200ms ease;
+	transition: all 200ms ease;
+	border: none;
+	font-size: 16px;
+	appearance: textfield;
+	font-weight: 300;
+	outline: none;
+	border-radius: 3px;
+}
+.backgroundColor{
+    background-color: #EBEFF2;
+}
+.float-r{
+    float: right;
+    margin-top: 3px;
+}
+.margin-bt{
+    margin-bottom: 6px;
+}
+.checkbox{
+    margin-bottom: 20px;
+    word-wrap: break-word;
+    display: inline-block;
+    width: 190px;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap; 
+    
+}
+#mainContainer{
+    position: relative;
+    padding: 60px 20px 20px 20px    
 
-a {
-  color: #00B7FF;
+}
+aside{
+    padding: 15px;
+    width: 250px;
+    float: left;
+    background: #ffffff;
+	border-radius: 4px;
+    margin-right: 20px;
+}
+#pageContainer{
+    float: right;
+    width: calc(100% - 302px);
+    border: 1px solid red;
+}
+
+::-webkit-input-placeholder { /* WebKit browsers */
+    color:    #727272;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+   color:    #727272;
+   opacity:  0.7;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+   color:    #727272;
+   opacity:  0.7;
+}
+:-ms-input-placeholder { /* Internet Explorer 10+ */
+   color:    #727272;
+}
+
+@media screen and (max-width: 1200px) {
+    aside{
+        width: 200px;
+        float: left;
+    }  
+    .checkbox{
+        width: 140px;
+    }
+    #pageContainer{
+        width: calc(100% - 252px);
+    }
+}
+
+@media screen and (max-width: 800px) {
+    aside{
+        display: none;
+    }
+    #pageContainer{
+        width: 100%;
+    }
+}
+@media screen and (max-width: 700px) {
+    .mdl-layout__header-row, .mdl-layout-title{
+        padding: 3px;
+    }
+    #searchIcon{
+        top: 16px;
+        left: 150px;
+    }
 }

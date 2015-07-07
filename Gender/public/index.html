@@ -1,21 +1,87 @@
 <!doctype html>
-<html >
+<html  ng-app="myApp">
 <head>
+    <title>USI Gender</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="scripts/angular.min.js"></script>
     <link rel="stylesheet" href="stylesheets/mdl/material.min.css">
     <script src="stylesheets/mdl/material.min.js"></script>
     <link rel="stylesheet" href="stylesheets/style.css">
-    <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
  
+    <!-- angular controllers  -->
+    <script src="controllers/mainCtrl.js"></script>
+    
 </head>
     
     
-<body>
-    <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored">
-  <i class="material-icons">add</i>
-</button>
+ <body>
+    <!-- Simple header with fixed tabs. -->
+    <div class="mdl-layout mdl-js-layout mdl-layout--overlay-drawer-button mdl-layout--fixed-header
+                mdl-layout--fixed-tabs">
+      <header class="mdl-layout__header">
+        <div class="mdl-layout__header-row">
+          <!-- Title -->
+            
+          <span class="mdl-layout-title">USI Gender</span>
+          <i class="material-icons" id='searchIcon'>search</i>
+
+           <input id="searchBar" type="search" placeholder='search'>
+           <nav class="mdl-navigation">
+        <a class="mdl-navigation__link" href="">Link</a>
+        <a class="mdl-navigation__link" href="">Link</a>
     
-</body>    
+      </nav>
+        </div>
+          
+        <!-- Tabs -->
+        <div class="mdl-layout__tab-bar mdl-js-ripple-effect">
+          <a href="#fixed-tab-1" class="mdl-layout__tab is-active">craigslist</a>
+          <a href="#fixed-tab-2" class="mdl-layout__tab">forum</a>
+          <a href="#fixed-tab-3" class="mdl-layout__tab">maps</a>
+          <a href="#fixed-tab-3" class="mdl-layout__tab">calendar</a>
+        </div>
+      </header>
+     
+      <div class="mdl-layout__content backgroundColor" >
+        <section class="mdl-layout__tab-panel is-active" id="fixed-tab-1"> 
+        </section>
+        <section class="mdl-layout__tab-panel" id="fixed-tab-2">
+        </section>
+        <section class="mdl-layout__tab-panel" id="fixed-tab-3">
+        </section>
+        <section class="mdl-layout__tab-panel" id="fixed-tab-4">
+        </section>
+          
+          
+        <section id='mainContainer'>
+
+            <aside ng-controller="mainCtrl">
+                <p>Category</p>
+                <div ng-repeat="category in categories track by $index">
+                    <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect margin-bt" for="{{category}}">
+                        <input type="checkbox" id="{{category}}" class="mdl-checkbox__input"  />
+                        <span class="mdl-checkbox__label checkbox" >{{category}}</span>
+                        <span class="float-r">123</span>
+                    </label>
+                </div>
+            </aside>
+            
+            <section id="pageContainer">
+                <!--    insert page here        -->
+                test
+            
+            </section>
+        
+            
+          
+        </section>
+          
+      </div>
+    </div>
+
+  </body>  
     
     
 </html>
