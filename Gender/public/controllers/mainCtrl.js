@@ -1,4 +1,4 @@
-var myApp = angular.module('myApp',[]);
+var myApp = angular.module('myApp',["ngRoute"]);
 
 myApp.controller('mainCtrl', ['$scope', function($scope) {
 	$scope.categories = ['cane', 'gatto', 'gallina', 'topo','cinghiale','gorilla'];
@@ -19,3 +19,23 @@ myApp.controller('mainCtrl', ['$scope', function($scope) {
 	}
 
 }]);
+
+myApp.config(['$routeProvider',
+  function($routeProvider) {
+    $routeProvider.
+      when('/info', {
+        templateUrl: 'Info.html',
+        //controller: 'PhoneListCtrl'
+      }).
+    when('/activity', {
+        templateUrl: 'attivita.html',
+        //controller: 'PhoneListCtrl'
+      }).
+    when('/chisiamo', {
+        templateUrl: 'chiSiamo.html',
+        //controller: 'PhoneListCtrl'
+      }).
+      otherwise({
+        redirectTo: '/index.html'
+      });
+  }]);

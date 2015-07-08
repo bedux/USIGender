@@ -9,6 +9,8 @@
     <script src="stylesheets/mdl/material.min.js"></script>
     <link rel="stylesheet" href="stylesheets/style.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <script src="/bower_components/angular-route/angular-route.js"></script>
+
  
     <!-- angular controllers  -->
     <script src="controllers/mainCtrl.js"></script>
@@ -50,21 +52,24 @@
           
         <!-- Tabs -->
         <div class="mdl-layout__tab-bar mdl-js-ripple-effect">
-          <a href="#fixed-tab-1" class="mdl-layout__tab is-active">craigslist</a>
+            <a href="#fixed-tab-1" ng-href="#/phones" class="mdl-layout__tab is-active">craigslist</a>
           <a href="#fixed-tab-2" class="mdl-layout__tab">forum</a>
           <a href="#fixed-tab-3" class="mdl-layout__tab">maps</a>
-          <a href="#fixed-tab-3" class="mdl-layout__tab">calendar</a>
+          <a href="#fixed-tab-4" class="mdl-layout__tab">calendar</a>
         </div>
       </header>
      
       <div class="mdl-layout__content backgroundColor" >
         <section class="mdl-layout__tab-panel is-active" id="fixed-tab-1"> 
+            
         </section>
         <section class="mdl-layout__tab-panel" id="fixed-tab-2">
+            
         </section>
         <section class="mdl-layout__tab-panel" id="fixed-tab-3">
         </section>
         <section class="mdl-layout__tab-panel" id="fixed-tab-4">
+            
         </section>
           
           
@@ -100,9 +105,10 @@
             
             
             <section id="pageContainer">
-<!--    insert page here        -->
-                test
-            
+                  <div ng-view class="ngWiewMy">
+
+                    </div>
+
             </section>
         
             
