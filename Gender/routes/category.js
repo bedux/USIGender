@@ -11,4 +11,19 @@ router.get('/', function(req, res, next) {
   query.getAllSubCategory(null,function(data){res.json(data)});
     
 });
+
+
+//Request method
+//    req.body.name;
+//    req.body.parent;
+
+router.post('/', function(req, res, next) {
+    console.log(req.body.parent);
+    if(req.body.parent){
+    query.addNewCategory(req.body.name,req.body.parent,function(data){res.json(data)});
+    }else{
+            query.addNewCategory(req.body.name,null,function(data){res.json(data)});
+
+    }
+});
 module.exports = router;

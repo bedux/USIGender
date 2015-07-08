@@ -4,9 +4,9 @@ var CategorySchema =  mongoose.model('Category');
 
 var exports = module.exports = {};
 
-exports.addNewCategory=function(name,parentCategoryName,callback){
+exports.addNewCategory=function(name,parentCategoryId,callback){
     
-    if(parentCategoryName==null ||  parentCategoryName==''){
+    if(parentCategoryId==null ||  parentCategoryId==''){
         
         CategorySchema.findOne({name:name , root:true},function(err,cat){
             
@@ -25,7 +25,7 @@ exports.addNewCategory=function(name,parentCategoryName,callback){
             }); 
         });
     }else{
-        CategorySchema.findOne({name:parentCategoryName},"subCategory",function(err,cat){
+        CategorySchema.findOne({_id:parentCategoryId},"subCategory",function(err,cat){
             if(err){callback(err);return;}
             CategorySchema.findOne({_id:{$in:cat.subCategory}},function(err,cat1){
                 if(cat1!=null){
