@@ -60,7 +60,7 @@ aside{
 #pageContainer{
     float: right;
     width: calc(100% - 302px);
-    border: 1px solid red;
+/*    border: 1px solid red;*/
 }
 
 ::-webkit-input-placeholder { /* WebKit browsers */

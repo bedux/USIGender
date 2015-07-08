@@ -1,4 +1,3 @@
-var myApp = angular.module('myApp',[]);
 
 myApp.controller('forumPageCRT', function($scope,$http) {
     

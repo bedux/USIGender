@@ -1,5 +1,31 @@
 var myApp = angular.module('myApp',["ngRoute"]);
 
+myApp.config( function($routeProvider) {
+    $routeProvider.
+      when('/craigslist', {
+        templateUrl: 'models/craiglistPage.html',
+//        controller: 'craigCTRL'
+      }).
+    when('/forum', {
+        templateUrl: 'models/forumPage.html',
+        controller: 'forumPageCRT'
+      }).
+    when('/maps', {
+        templateUrl: 'models/mapsPage.html',
+        //controller: 'PhoneListCtrl'
+      })
+    .when('/calendar', {
+        templateUrl: 'models/calendarPage.html',
+        //controller: 'PhoneListCtrl'
+      })
+//        .otherwise({
+//        redirectTo: '/index.html'
+//      });
+  });
+
+
+
+
 myApp.controller('mainCtrl', ['$scope', function($scope) {
 	$scope.categories = ['cane', 'gatto', 'gallina', 'topo','cinghiale','gorilla'];
 
@@ -10,32 +36,14 @@ myApp.controller('mainCtrl', ['$scope', function($scope) {
         
         for(a=0 ; a < el.length; a++){
             var curFont = parseInt(el[a].style.fontSize,10)||14;
-            el[a].style.fontSize = (curFont+step) + 'px';
-        
+            el[a].style.fontSize = (curFont+step) + 'px'; 
         }
-        
-//        var curFont = parseInt(el.style.fontSize,10);
-//		el.style.fontSize = (curFont+step) + 'px';
 	}
+    
+    $scope.path = function(path){
+        console.log("caio");
+        window.location.hash = '/'+path;
+    }
 
 }]);
 
-myApp.config(['$routeProvider',
-  function($routeProvider) {
-    $routeProvider.
-      when('/info', {
-        templateUrl: 'Info.html',
-        //controller: 'PhoneListCtrl'
-      }).
-    when('/activity', {
-        templateUrl: 'attivita.html',
-        //controller: 'PhoneListCtrl'
-      }).
-    when('/chisiamo', {
-        templateUrl: 'chiSiamo.html',
-        //controller: 'PhoneListCtrl'
-      }).
-      otherwise({
-        redirectTo: '/index.html'
-      });
-  }]);

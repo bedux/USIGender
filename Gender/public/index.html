@@ -9,12 +9,13 @@
     <script src="stylesheets/mdl/material.min.js"></script>
     <link rel="stylesheet" href="stylesheets/style.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <script src="/bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/angular-route/angular-route.min.js"></script>
 
  
     <!-- angular controllers  -->
     <script src="controllers/mainCtrl.js"></script>
-    
+<!--    <script src="controllers/craiglistPageCTRL.js"></script>-->
+    <script src="controllers/forumPageCTR.js"></script>
 </head>
     
     
@@ -51,11 +52,11 @@
         </div>
           
         <!-- Tabs -->
-        <div class="mdl-layout__tab-bar mdl-js-ripple-effect">
-            <a href="#fixed-tab-1" ng-href="#/phones" class="mdl-layout__tab is-active">craigslist</a>
-          <a href="#fixed-tab-2" class="mdl-layout__tab">forum</a>
-          <a href="#fixed-tab-3" class="mdl-layout__tab">maps</a>
-          <a href="#fixed-tab-4" class="mdl-layout__tab">calendar</a>
+        <div class="mdl-layout__tab-bar mdl-js-ripple-effect">  
+          <a href="#fixed-tab-1" ng-click="path('craigslist')" class="mdl-layout__tab is-active">craigslist</a> 
+          <a href="#fixed-tab-2" ng-click="path('forum')" class="mdl-layout__tab">forum</a>
+          <a href="#fixed-tab-3" ng-click="path('maps')" class="mdl-layout__tab">maps</a>
+          <a href="#fixed-tab-4" ng-click="path('calendar')" class="mdl-layout__tab">calendar</a>
         </div>
       </header>
      
@@ -105,9 +106,10 @@
             
             
             <section id="pageContainer">
-                  <div ng-view class="ngWiewMy">
+                
+                <div ng-view class="ngWiewMy">
 
-                    </div>
+                </div>
 
             </section>
         
