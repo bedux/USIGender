@@ -1,0 +1,43 @@
+<html>
+    <script src="../scripts/angular.min.js"></script>
+    <link rel="stylesheet" href="../stylesheets/mdl/material.min.css">
+    <script src="../stylesheets/mdl/material.min.js"></script>
+    <link rel="stylesheet" href="../stylesheets/style.css">
+    <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
+    <script src="../controllers/forumPageCTR.js"></script>
+     <link rel="stylesheet" href="../stylesheets/forumStyle.css">
+    
+<body ng-app="myApp">
+  <div ng-controller="forumPageCRT">
+    <div class="block" ng-repeat="post in posts">
+        
+                  
+        <div class="postUserPart" >
+            <img  class="postImageUser" ng-src="{{post.User.ImageSRC}}"/>
+        </div>
+        
+         <div class="postTitlePart" >
+             <h3>{{post.Title}}</h1>
+            <p>{{ post.Description | limitTo: 400 }}{{post.Description.length > 400 ? '[...]' : ''}}</p>
+
+        </div>
+         <div class="postInfoPart" >
+             <div class="postRespDiv">
+             <p class="infoRespP fontInfo">{{post.Info.Respose}}</p>
+             </div>
+            <hr>
+             <span><img  class="imgView" src="../images/VIewInfo.png">
+                 <p class="infoViewP ">{{post.Info.Views}}</p></span>
+              <hr>
+             <span><img  class="imgView" src="../images/TimeInfo.png">
+                 <p class="infoViewP">{{post.Info.LastView}}</p></span>
+
+              <hr>
+
+        </div>
+        </div>
+  </div>
+    
+</body>
+    
+</html>
