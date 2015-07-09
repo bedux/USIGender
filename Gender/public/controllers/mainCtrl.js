@@ -1,4 +1,4 @@
-var myApp = angular.module('myApp',["ngRoute"]);
+var myApp = angular.module('myApp',["ngRoute",'uiGmapgoogle-maps']);
 
 myApp.config( function($routeProvider) {
     $routeProvider.
@@ -12,7 +12,7 @@ myApp.config( function($routeProvider) {
       }).
     when('/maps', {
         templateUrl: 'models/mapsPage.html',
-        //controller: 'PhoneListCtrl'
+        controller: 'mapsCTRL'
       })
     .when('/calendar', {
         templateUrl: 'models/calendarPage.html',

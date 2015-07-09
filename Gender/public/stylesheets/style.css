@@ -157,6 +157,13 @@ aside{
 
 /* /craiglistPage */
 
+/* mapsPage */
+.angular-google-map-container { 
+    height: 400px; 
+}
+
+/* \maps Page */
+
 @media screen and (max-width: 1200px) {
     aside{
         width: 200px;
