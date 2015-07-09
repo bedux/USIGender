@@ -5,6 +5,9 @@ mongoose.connect('mongodb://localhost/test');
 
 //list all module
 require('./module/category');
+require('./module/discussion');
+require('./module/user');
+
 
 
 

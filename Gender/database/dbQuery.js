@@ -1,6 +1,10 @@
 var mongoose = require('mongoose');
 
 var CategorySchema =  mongoose.model('Category');
+var DiscussionSchema =  mongoose.model('Discussion');
+
+var UserSchema =  mongoose.model('User');
+
 
 var exports = module.exports = {};
 
@@ -27,7 +31,8 @@ exports.addNewCategory=function(name,parentCategoryId,callback){
     }else{
         CategorySchema.findOne({_id:parentCategoryId},"subCategory",function(err,cat){
             if(err){callback(err);return;}
-            CategorySchema.findOne({_id:{$in:cat.subCategory}},function(err,cat1){
+            
+                CategorySchema.findOne({_id:{$in:cat.subCategory}},function(err,cat1){
                 if(cat1!=null){
                     callback({error:"Arleady Exists"});return;
                 }
@@ -70,4 +75,52 @@ exports.getAllSubCategory = function(currentId,callback){
     }
     
     
+}
+
+exports.addNewUser = function(name,imageSRC,callback){
+    if(imageSRC==null){
+        var usr = new UserSchema({name:name});
+        usr.save(function(err,saved){
+                if(err){console.error(err);callback(err); return;}
+                callback(saved);            
+        });
+    }
+     else{
+        
+        var usr = new UserSchema({name:name, imageSRC:imageSRC});
+        usr.save(function(err,saved){
+                if(err){console.error(err);callback(err); return;}
+                callback(saved);            
+        });
+    }   
+}
+
+
+exports.addNewDiscussion = function(title,object,category,user,callback){
+    
+    var disc = new DiscussionSchema({title:title,object:object,category:category,user:user});
+    disc.save(function(err,data){
+        
+        if(err){console.error(err);callback(err); return;}
+        callback(data);
+        
+    })
+}
+
+exports.getAllUsers = function(callback){
+    
+    UserSchema.find({}).exec(function(err,data){
+        if(err){console.error(err);callback(err); return;}
+        callback(data);
+    })
+}
+
+
+
+exports.getAllDiscussion = function(callback){
+    
+    DiscussionSchema.find({}).populate('user category').exec(function(err,data){
+        if(err){console.error(err);callback(err); return;}
+        callback(data);
+    })
 }

@@ -5,7 +5,7 @@ var Schema = mongoose.Schema;
 var CategorySchema = new Schema({
     
     name:String,
-    subCategory:{type:[Schema.Types.ObjectId], default: []},
+    subCategory:{type:[Schema.Types.ObjectId], default: [] , ref:"Category"},
     root:Boolean
 
 });

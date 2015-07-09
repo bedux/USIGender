@@ -15,7 +15,20 @@ var category = require('./routes/category');
 
 var query = require('./database/dbQuery');
 
-query.addNewCategory("Shop",null,function(data){console.log(data);query.addNewCategory("Fruit","Shop",function(asd){console.log(asd)});});
+query.addNewCategory("Shop3",null,function(data){
+    
+    query.addNewUser("Marco",null,function(data1){
+       query.addNewDiscussion("asd asd asasas","asa asas",data._id,data1._id,function(data3){
+           console.log(data3);
+           query.getAllDiscussion(function(data4){
+               
+              console.log(data4) ;
+           });
+       })
+        
+    });
+    
+});
 
 
 var app = express();
