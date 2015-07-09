@@ -4,7 +4,7 @@ myApp.config( function($routeProvider) {
     $routeProvider.
       when('/craigslist', {
         templateUrl: 'models/craiglistPage.html',
-//        controller: 'craigCTRL'
+        controller: 'craigCTRL'
       }).
     when('/forum', {
         templateUrl: 'models/forumPage.html',
@@ -27,7 +27,7 @@ myApp.config( function($routeProvider) {
 
 
 myApp.controller('mainCtrl', ['$scope', function($scope) {
-	$scope.categories = ['cane', 'gatto', 'gallina', 'topo','cinghiale','gorilla'];
+	$scope.categories = ['cane', 'gattosdsddsda', 'gallina', 'topo','cinghiale','gorilla'];
 
 	$scope.changeFontSize = function(step){
 		step = parseInt(step,10);

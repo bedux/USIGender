@@ -1,1 +1,28 @@
-<h1>craiglist</h1>
+<div >
+ 
+    <div ng-repeat="n in categories" class="mdl-shadow--2dp categories" ng-click="">
+        
+        <i class="material-icons md-48" >{{n.icon || 'work'}}</i>
+        <div class='cardName' >    
+            {{n.name}}
+        </div>
+    </div>
+    <div style="clear:both;"></div>
+    <hr>
+
+    <ul class="craigsList">
+        <li ng-repeat="ns in [1,2,3,4,5,6,7,8,9]">
+            <div class="listIcon"> <i class="material-icons">work</i></div>
+            <div class="listText">
+                <div class="title"> Cricket  </div>
+                <div class="description">Il cricket è uno sport di squadra praticato con mazza, palla e guantone (del wicket keeper-ricevitore) giocato fra due gruppi di undici giocatori ciascuno ed è il secondo gioco più seguito del mondo </div>
+            </div>
+            <div class='listInfo'>
+                8/10
+            </div>
+        </li>
+     
+    </ul>
+
+
+</div>
