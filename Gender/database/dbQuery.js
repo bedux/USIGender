@@ -147,7 +147,7 @@ exports.getAllSubForumCategoryOfCategory = function(category,callbackVero){
         var rest = [];   
         var pippo = function(data,i,callback){
             if (i<data.length){
-                rest.push(data[i]._id);
+                rest.push(new mongoose.Types.ObjectId(data[i]._id));
                 exports.getSubForumCategoryById(data[i]._id,function(sub){
                 pippo(sub,0,function(){pippo(data,i+1,callback);});      
                 })
@@ -208,7 +208,7 @@ exports.addNewDiscussion = function(title,object,forumCategory,user,callback){
 }
 exports.getAllDiscussion = function(callback){
     
-    DiscussionSchema.find({}).populate('user forumCategory').exec(function(err,data){
+    DiscussionSchema.find({}).populate('user ').exec(function(err,data){
         if(err){error(err,callback);return;};
         callback(data);
     });
@@ -232,7 +232,7 @@ exports.discussionUpdate = function(id,param,callback){
 }
 
 exports.getAllDiscussion = function(callback){   
-    DiscussionSchema.find({}).populate('user forumCategory').exec(function(err,data){
+    DiscussionSchema.find({}).populate('user').exec(function(err,data){
         if(err){console.error(err);callback(err); return;}
         callback(data);
     });
@@ -339,7 +339,7 @@ exports.getAllAttachment = function(id,callback){
 //return all the info of belong to a category and a sub category!
 exports.getAllInfoByCategory = function(category,callback){
     exports.getAllSubcategoryOfCategory(category,function(data){
-        InfoSchema.find({_id:{$in:data}},function(result){
+        InfoSchema.find({category:{$in:data}},function(result){
             callback(result);
         })
     });
@@ -348,8 +348,10 @@ exports.getAllInfoByCategory = function(category,callback){
 //return all the info of belong to a category and a sub category!
 exports.getAllDiscussionByForumCategory = function(category,callback){
     exports.getAllSubForumCategoryOfCategory(category,function(data){
-        DiscussionSchema.find({_id:{$in:data}},function(result){
+        DiscussionSchema.find({forumCategory:{"$in":data}}).exec(function(err,result){
             callback(result);
+        
+       
         })
     });
 }

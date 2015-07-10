@@ -8,10 +8,14 @@ var bodyParser = require('body-parser');
 //need for connect and add all the schem
 
 require('./database/databaseInit');
+
 var forum = require('./routes/forum');
 var category = require('./routes/category');
 var info = require('./routes/info');
+var discussion = require('./routes/discussion');
 
+
+var user = require('./routes/user');
 
 
 var query = require('./database/dbQuery');
@@ -34,10 +38,17 @@ app.set('views', path.join(__dirname, 'views/'));
 
 app.set('view engine', 'jade');
 
+
+//INIT ROUTER
+
 app.use('/forum', forum);
 app.use('/category', category);
-
+app.use('/discussion', discussion);
+app.use('/user', user);
 app.use('/info', info);
+
+
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');

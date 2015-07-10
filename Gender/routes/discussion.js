@@ -11,17 +11,19 @@ router.get('/:current', function(req, res, next) {
 
 
 router.get('/', function(req, res, next) {
-    query.getAllInfo(function(data){res.json(data)});
+    query.getAllDiscussion(function(data){res.json(data)});
 });
 
 
 
 router.post('/', function(req, res, next) {
     
-  query.addNewInfo(req.body.title,req.body.obj,req.body.attachments,req.body.category,function(data){
+  query.addNewDiscussion(req.body.title,req.body.obj,req.body.category,req.body.user,function(data){
       res.json(data);
   })
 });
+
+
 
 
 

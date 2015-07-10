@@ -11,14 +11,13 @@ router.get('/:current', function(req, res, next) {
 
 
 router.get('/', function(req, res, next) {
-    query.getAllInfo(function(data){res.json(data)});
+    query.getAllUsers(function(data){res.json(data)});
 });
 
 
 
 router.post('/', function(req, res, next) {
-    
-  query.addNewInfo(req.body.title,req.body.obj,req.body.attachments,req.body.category,function(data){
+  query.addNewUser(req.body.name,req.body.imgSrc,function(data){
       res.json(data);
   })
 });
@@ -26,4 +25,7 @@ router.post('/', function(req, res, next) {
 
 
 
+
+
 module.exports = router;
+ 

@@ -5,7 +5,6 @@ var query = require('../database/dbQuery');
 /* GET home page. */
 router.get('/:current', function(req, res, next) {
   query.getSubForumCategoryById(req.params.current,function(cat){
-      
       query.getAllDiscussionByForumCategory(req.params.current,function(inf){
             res.json({categories:cat,info:inf}); 
       });
