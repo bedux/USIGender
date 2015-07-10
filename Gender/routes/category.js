@@ -3,14 +3,47 @@ var router = express.Router();
 var query = require('../database/dbQuery');
 /* GET home page. */
 router.get('/:current', function(req, res, next) {
-  query.getAllSubCategory(req.params.current,function(data){res.json(data)});
+  query.getSubCraiglistCategoryById(req.params.current,function(cat){
+      
+      query.getAllInfoByCategory(req.params.current,function(inf){
+            res.json({categories:cat,info:inf}); 
+      });
+  });
     
 });
 
+
+
 router.get('/', function(req, res, next) {
-  query.getAllSubCategory(null,function(data){res.json(data)});
+  query.getAllRootCategory(function(data){
+      query.getAllInfo(function(data2){ 
+       res.json({categories:data,info:data2});
+      
+      
+        })
+  
+   });
     
 });
+
+
+
+
+
+////get the root of a category
+//router.get('/root/:id', function(req, res, next) {
+//    query.getRootOfCategory(req.params.id,function(data){res.json(data);})
+//  
+//});
+//
+//
+//router.get('/allLeaf/root/:id', function(req, res, next) {
+//  
+//  query.getAllSubcategoryOfCategory(req.params.id,function(data){res.json(data)});
+//
+//});
+
+
 
 
 //Request method
@@ -18,12 +51,9 @@ router.get('/', function(req, res, next) {
 //    req.body.parent;
 
 router.post('/', function(req, res, next) {
-    console.log(req.body.parent);
-    if(req.body.parent){
-    query.addNewCategory(req.body.name,req.body.parent,function(data){res.json(data)});
-    }else{
-            query.addNewCategory(req.body.name,null,function(data){res.json(data)});
-
-    }
+    query.addNewCraiglistCategory(req.body.name,req.body.parent,function(data){
+    res.json(data); 
+        
+    });
 });
 module.exports = router;

@@ -4,7 +4,7 @@ var Schema = mongoose.Schema;
 
 var UserSchema = new Schema({
     
-    name:String,
+    name:{type:String,required:true}, 
     imageSRC:{type:String,default:"/images/defaultUser.png"}
 });
 

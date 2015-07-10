@@ -13,24 +13,24 @@
         
                   
         <div class="postUserPart" >
-            <img  class="postImageUser" ng-src="{{post.User.ImageSRC}}"/>
+            <img  class="postImageUser" ng-src="{{post.user.imageSRC}}"/>
         </div>
         
          <div class="postTitlePart" >
-             <h3>{{post.Title}}</h1>
-            <p>{{ post.Description | limitTo: 400 }}{{post.Description.length > 400 ? '[...]' : ''}}</p>
+             <h3>{{post.title}}</h1>
+            <p>{{ post.object | limitTo: 400 }}{{post.object.length > 400 ? '[...]' : ''}}</p>
 
         </div>
          <div class="postInfoPart" >
              <div class="postRespDiv">
-             <p class="infoRespP fontInfo">{{post.Info.Respose}}</p>
+             <p class="infoRespP fontInfo">{{post.response}}</p>
              </div>
             <hr>
              <span><img  class="imgView" src="../images/VIewInfo.png">
-                 <p class="infoViewP ">{{post.Info.Views}}</p></span>
+                 <p class="infoViewP ">{{post.view}}</p></span>
               <hr>
              <span><img  class="imgView" src="../images/TimeInfo.png">
-                 <p class="infoViewP">{{post.Info.LastView}}</p></span>
+                 <p class="infoViewP">{{post.lastView | date: 'MMM d' }}</p></span>
 
               <hr>
 

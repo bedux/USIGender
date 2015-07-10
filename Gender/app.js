@@ -10,25 +10,13 @@ var bodyParser = require('body-parser');
 require('./database/databaseInit');
 var forum = require('./routes/forum');
 var category = require('./routes/category');
+var info = require('./routes/info');
 
 
 
 var query = require('./database/dbQuery');
 
-query.addNewCategory("Shop3",null,function(data){
-    
-    query.addNewUser("Marco",null,function(data1){
-       query.addNewDiscussion("asd asd asasas","asa asas",data._id,data1._id,function(data3){
-           console.log(data3);
-           query.getAllDiscussion(function(data4){
-               
-              console.log(data4) ;
-           });
-       })
-        
-    });
-    
-});
+
 
 
 var app = express();
@@ -49,6 +37,7 @@ app.set('view engine', 'jade');
 app.use('/forum', forum);
 app.use('/category', category);
 
+app.use('/info', info);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');

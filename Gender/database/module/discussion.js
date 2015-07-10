@@ -4,16 +4,16 @@ var Schema = mongoose.Schema;
 
 var DiscussionSchema = new Schema({
     
-    title:String,
+    title:{type:String,required:true},
     object:String,
 
-    category:{type:Schema.Types.ObjectId,ref:"Category"},
+    forumCategory:{type:Schema.Types.ObjectId,ref:"ForumCategory"},
     user:{type:Schema.Types.ObjectId,ref:"User"},
     
   
-    response:Number,
-    view: Number,
-    lastView:Date 
+    response:{type:Number,default:0},
+    view: {type:Number,default:0},
+    lastView:{type:Number,default:Date.now} 
 });
 
 module.export=mongoose.model('Discussion',DiscussionSchema);
