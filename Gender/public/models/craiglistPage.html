@@ -9,20 +9,52 @@
     </div>
     <div style="clear:both;"></div>
     <hr>
+    
 
     <ul class="craigsList">
-        <li ng-repeat="ns in [1,2,3,4,5,6,7,8,9]">
-            <div class="listIcon"> <i class="material-icons">work</i></div>
-            <div class="listText">
-                <div class="title"> Cricket  </div>
-                <div class="description">Il cricket è uno sport di squadra praticato con mazza, palla e guantone (del wicket keeper-ricevitore) giocato fra due gruppi di undici giocatori ciascuno ed è il secondo gioco più seguito del mondo </div>
+        <li ng-repeat="ns in categories" >
+            <div  ng-if="ns.type == 1" class="listType">
+                <div class="listIcon"> <i class="material-icons">work</i></div>
+                <div class="listText">
+                    <div class="title"> Cricket  </div>
+                    <div class="description">Il cricket è uno sport di squadra praticato con mazza, palla e guantone (del wicket keeper-ricevitore) giocato fra due gruppi di undici giocatori ciascuno ed è il secondo gioco più seguito del mondo </div>
+                </div>
+                <div class='listInfo'>
+                    7/10 
+                    <button class="mdl-button mdl-js-button mdl-button--icon">
+                      <i class="material-icons">info_outline</i>
+                    </button>
+                </div>
             </div>
-            <div class='listInfo'>
-                8/10
+            
+            
+             <div  ng-if="ns.type == 2" class="listType">
+                <div class="listIcon"> <i class="material-icons">work</i></div>
+                <div class="listText">
+                    <div class="title"> Cricket  </div>
+                    <div class='inlinebox'>
+                        <img src="http://www.brandeis.edu/about/images/newformat/map2.jpg" class="graigImage">
+                    </div>
+                    <div class='inlinebox' >
+                        <div class="infoMap">telephone: 03326898982</div>
+                        <div class="infoMap">opening hour: 10am - 3pm</div>
+                      
+                    </div>
+                 </div>
+                
+                <div class='listInfo'>
+                    8/10
+                    <button class="mdl-button mdl-js-button mdl-button--icon">
+                      <i class="material-icons">info_outline</i>
+                    </button>
+                </div>
             </div>
         </li>
+        
+     
      
     </ul>
 
+    
 
 </div>

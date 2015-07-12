@@ -126,22 +126,29 @@ aside{
     margin: 0px;
 }
 .craigsList li{
-    position: relative;
     line-height: normal;
     background: white;
     border-bottom: 1px solid gray;
     padding: 16px;
+    
+}
+.listType{
+
+    width: 100%;
+    position:relative;
     display: -webkit-inline-box;
     display: -webkit-inline-flex;
     display: -ms-inline-flexbox;
     display: inline-flex;
 }
+
 .listIcon{
     margin-right: 25px;
     
 }
 .listText{
-    
+    display: block;
+    width: 100%;
 }
 .listText .title{
     font-size: 16px;
@@ -152,9 +159,21 @@ aside{
 }
 .listInfo{
     position: absolute;
+    top: -13px;
     right: 16px;;
 }
-
+.graigImage{
+    margin-top: 5px;
+    width: 100%;
+    height: 100%;
+}
+.inlinebox{
+    float: left;
+    width: 49%;
+}
+.infoMap{
+    margin: 8px;
+}
 /* /craiglistPage */
 
 /* mapsPage */
@@ -180,6 +199,11 @@ aside{
     }
     #pageContainer{
         width: 100%;
+    }
+    .inlinebox{
+        
+        width: 100%;
+        float: none;
     }
 }
 @media screen and (max-width: 700px) {
