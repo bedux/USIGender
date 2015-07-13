@@ -268,10 +268,15 @@ exports.getAlllReply= function(discussion,calback){
 //--------------------INFO -----------------------------------------------------------
 
 exports.addNewInfo = function(title,obj,attachments,category,callback){
-    var inf = new InfoSchema({title:title,obj:obj,attachments:attachments,category:category});
+    var inf = new InfoSchema({title:title,obj:obj,category:category});
+    attachments=[attachments];
+    console.log(attachments);
     inf.save(function(err, saved){
+        InfoSchema.update({_id:saved._id},{$push:{attachments:attachments}},function(err,data){
         if(err){error(err,callback);return;};
+            saved.attachments.push(attachments[0]);
         callback(saved);  
+        })
     });
 }
 
@@ -307,6 +312,8 @@ exports.getAllAddress = function(calback){
 }
 
 
+
+
 //--------------------ATTACHMENT -----------------------------------------------------------
 
 
@@ -326,7 +333,15 @@ exports.getAttachment = function(id,callback){
     });
 }
 
-exports.getAllAttachment = function(id,callback){
+exports.getAttachmentByCategory = function(id,callback){
+    AttachmentSchema.find({category:id}).populate("category address").exec(function(err,data){
+        if(err){error(err,callback);return;};
+        callback(data);     
+    });
+}
+
+
+exports.getAllAttachment = function(callback){
     AttachmentSchema.find({}).populate("category address").exec(function(err,data){
         if(err){error(err,callback);return;};
         callback(data);     

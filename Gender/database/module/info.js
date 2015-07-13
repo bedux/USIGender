@@ -7,7 +7,7 @@ var InfoSchema = new Schema({
     title:{type:String,require:true},
     obj:{type:String},
     category:{type:Schema.Types.ObjectId,ref:"Category"},
-    attachments:{type:[Schema.Types.ObjectId],ref:"Attachment"},
+    attachments:{type:[Schema.Types.ObjectId],ref:"Attachment",default:[]},
 
     
 

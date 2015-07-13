@@ -11,11 +11,12 @@ require('./database/databaseInit');
 
 var forum = require('./routes/forum');
 var category = require('./routes/category');
-var info = require('./routes/info');
 var discussion = require('./routes/discussion');
+var attachment = require('./routes/attachment');
+var address = require('./routes/address');
 
 
-var user = require('./routes/user');
+var attachment = require('./routes/attachment');
 
 
 var query = require('./database/dbQuery');
@@ -45,8 +46,8 @@ app.use('/forum', forum);
 app.use('/category', category);
 app.use('/discussion', discussion);
 app.use('/user', user);
-app.use('/info', info);
-
+app.use('/attachment',attachment);
+app.use('/address', address);
 
 
 // catch 404 and forward to error handler

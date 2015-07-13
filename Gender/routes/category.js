@@ -5,7 +5,7 @@ var query = require('../database/dbQuery');
 router.get('/:current', function(req, res, next) {
   query.getSubCraiglistCategoryById(req.params.current,function(cat){
       
-      query.getAllInfoByCategory(req.params.current,function(inf){
+      query.getAttachmentByCategory(req.params.current,function(inf){
             res.json({categories:cat,info:inf}); 
       });
   });
@@ -16,7 +16,7 @@ router.get('/:current', function(req, res, next) {
 
 router.get('/', function(req, res, next) {
   query.getAllRootCategory(function(data){
-      query.getAllInfo(function(data2){ 
+      query.getAllAttachment(function(data2){ 
        res.json({categories:data,info:data2});
       
       
