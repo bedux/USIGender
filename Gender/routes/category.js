@@ -6,7 +6,7 @@ router.get('/:current', function(req, res, next) {
   query.getSubCraiglistCategoryById(req.params.current,function(cat){
       
       query.getAttachmentByCategory(req.params.current,function(inf){
-            res.json({categories:cat,info:inf}); 
+            res.json({categories:cat,info:inf,parentCategory:req.params.current}); 
       });
   });
     
@@ -17,7 +17,7 @@ router.get('/:current', function(req, res, next) {
 router.get('/', function(req, res, next) {
   query.getAllRootCategory(function(data){
       query.getAllAttachment(function(data2){ 
-       res.json({categories:data,info:data2});
+       res.json({categories:data,info:data2,parentCategory:null});
       
       
         })
@@ -30,9 +30,8 @@ router.get('/', function(req, res, next) {
 
 router.get('/back/:id', function(req, res, next) {
      query.categoryBack(req.params.id,function(cat){
-         
         query.getAttachmentByCategory(req.params.current,function(inf){
-            res.json({categories:cat,info:inf}); 
+            res.json({categories:cat,info:inf,parentCategory:cat[0].parentCategory}); 
       });
          
      })
