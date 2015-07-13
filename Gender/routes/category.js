@@ -28,6 +28,18 @@ router.get('/', function(req, res, next) {
 
 
 
+router.get('/back/:id', function(req, res, next) {
+     query.categoryBack(req.params.id,function(cat){
+         
+        query.getAttachmentByCategory(req.params.current,function(inf){
+            res.json({categories:cat,info:inf}); 
+      });
+         
+     })
+    
+});
+
+
 
 
 ////get the root of a category

@@ -95,6 +95,20 @@ exports.getAllSubcategoryOfCategory = function(category,callbackVero){
     });
 }
 
+exports.categoryBack=function(id,callback){
+    CategorySchema.findOne({_id:id},function(err,data){
+            if(err){error(err,callback);return;};
+         console.log(data);
+            CategorySchema.find({parendCategory:data.parendCategory},function(err,result){
+                if(err)error(err,callback);
+                callback(result);
+            });
+        
+
+        
+    });
+    
+}
 
 
 //--------------------FORUM CATEGORY-----------------------------------------------------------
@@ -117,6 +131,10 @@ exports.addNewForumCategory=function(name,parentCategoryId,callback){
     });
     
 }
+
+
+
+
 exports.getSubForumCategoryById = function(currentId,callback){
 
         ForumCategorySchema.find({parentCategory:currentId},function(err,data){
@@ -370,6 +388,8 @@ exports.getAllDiscussionByForumCategory = function(category,callback){
         })
     });
 }
+
+
 
 
 
