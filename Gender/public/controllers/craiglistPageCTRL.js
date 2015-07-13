@@ -1,25 +1,31 @@
 
 myApp.controller('craigCTRL', function($scope,$http) {
-    
-   $scope.categories=[
-       {name: 'sport', icon:'shopping_cart', type:1},
-       {name: 'lavoro' ,icon:'insert_emoticon',type:2},
-       {name: 'hobbie', icon:'work',type:1},
-       {name: 'sport',type:2},
-       {name: 'sport',type:1},
-       {name: 'sport',type:2},
-       {name: 'sport',type:1},
-       {name: 'sport',type:2},
-       {name: 'sport'}
-   ]
-   
-//    $http.get('/category').
-//    success(function(data, status, headers, config) {
-//      $scope.categories = data;
-//    }).
-//    error(function(data, status, headers, config) {
-//        console.log(data);
-//   });
+    $scope.craig= {};
+
+    $scope.craig.prev = null;
     
     
+    
+    updateList = function(path){
+        $http.get(path).
+            success(function(data, status, headers, config) {
+                $scope.craig.categories = data.categories;
+                $scope.craig.info = data.info;
+                $scope.craig.prev = data.parentCategory;
+            }).
+            error(function(data, status, headers, config) {
+                console.log(data);
+            });
+    }
+    
+    updateList('/category');
+
+    
+    $scope.chooseCategry= function(index){
+        updateList('/category/'+$scope.craig.categories[index]._id);
+    }
+
+    $scope.clicksd= function(){
+        updateList('/category/back/'+  $scope.craig.prev);
+    }
 });

@@ -18,9 +18,9 @@ myApp.config( function($routeProvider) {
         templateUrl: 'models/calendarPage.html',
         //controller: 'PhoneListCtrl'
       })
-//        .otherwise({
-//        redirectTo: '/index.html'
-//      });
+        .otherwise({
+        redirectTo: '/craigslist'
+      });
   });
 
 
@@ -41,7 +41,6 @@ myApp.controller('mainCtrl', ['$scope', function($scope) {
 	}
     
     $scope.path = function(path){
-        console.log("caio");
         window.location.hash = '/'+path;
     }
 

@@ -1,10 +1,19 @@
-<div >
+<div style='margin-bottom:16px;'>
+    <!-- Colored raised button -->
+    <div>
+<button class="mdl-button mdl-js-button mdl-js-ripple-effect" 
+        ng-click="clicksd()" ng-disabled='craig.prev == null'>
+    <i class="material-icons">undo</i>
+  back
+</button>
+
+</div>
  
-    <div ng-repeat="n in categories" class="mdl-shadow--2dp categories" ng-click="">
+    <div ng-repeat="n in craig.categories" class="mdl-shadow--2dp categories" ng-click="chooseCategry($index)">
         
         <i class="material-icons md-48" >{{n.icon || 'work'}}</i>
         <div class='cardName' >    
-            {{n.name}}
+            {{ n.name | limitTo: 11 }}{{n.name.length > 11 ? '...' : ''}}
         </div>
     </div>
     <div style="clear:both;"></div>
@@ -12,12 +21,12 @@
     
 
     <ul class="craigsList">
-        <li ng-repeat="ns in categories" >
-            <div  ng-if="ns.type == 1" class="listType">
+        <li ng-repeat="ns in craig.info" >
+            <div  ng-if="ns.type == 'map'" class="listType">
                 <div class="listIcon"> <i class="material-icons">work</i></div>
                 <div class="listText">
-                    <div class="title"> Cricket  </div>
-                    <div class="description">Il cricket è uno sport di squadra praticato con mazza, palla e guantone (del wicket keeper-ricevitore) giocato fra due gruppi di undici giocatori ciascuno ed è il secondo gioco più seguito del mondo </div>
+                    <div class="title fontResizable "> Cricket  </div>
+                    <div class="description fontResizable ">Il cricket è uno sport di squadra praticato con mazza, palla e guantone (del wicket keeper-ricevitore) giocato fra due gruppi di undici giocatori ciascuno ed è il secondo gioco più seguito del mondo </div>
                 </div>
                 <div class='listInfo'>
                     7/10 
@@ -31,20 +40,20 @@
              <div  ng-if="ns.type == 2" class="listType">
                 <div class="listIcon"> <i class="material-icons">work</i></div>
                 <div class="listText">
-                    <div class="title"> Cricket  </div>
+                    <div class="title fontResizable"> Cricket  </div>
                     <div class='inlinebox'>
-                        <img src="http://www.brandeis.edu/about/images/newformat/map2.jpg" class="graigImage">
+                        <img ng-src="http://www.brandeis.edu/about/images/newformat/map2.jpg" class="graigImage">
                     </div>
                     <div class='inlinebox' >
-                        <div class="infoMap">telephone: 03326898982</div>
-                        <div class="infoMap">opening hour: 10am - 3pm</div>
+                        <div class="infoMap fontResizable ">telephone: 03326898982</div>
+                        <div class="infoMap fontResizable ">opening hour: 10am - 3pm</div>
                       
                     </div>
                  </div>
                 
                 <div class='listInfo'>
                     8/10
-                    <button class="mdl-button mdl-js-button mdl-button--icon">
+                    <button class="mdl-button mdl-js-button mdl-button--icon ">
                       <i class="material-icons">info_outline</i>
                     </button>
                 </div>
@@ -55,6 +64,5 @@
      
     </ul>
 
-    
-
 </div>
+
