@@ -98,8 +98,8 @@ exports.getAllSubcategoryOfCategory = function(category,callbackVero){
 exports.categoryBack=function(id,callback){
     CategorySchema.findOne({_id:id},function(err,data){
             if(err){error(err,callback);return;};
-         console.log(data);
-            CategorySchema.find({parendCategory:data.parendCategory},function(err,result){
+         console.log(data.parentCategory);
+            CategorySchema.find({parentCategory:data.parentCategory},function(err,result){
                 if(err)error(err,callback);
                 callback(result);
             });
