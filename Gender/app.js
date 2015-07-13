@@ -14,6 +14,7 @@ var category = require('./routes/category');
 var discussion = require('./routes/discussion');
 var attachment = require('./routes/attachment');
 var address = require('./routes/address');
+var user = require('./routes/user');
 
 
 var attachment = require('./routes/attachment');
