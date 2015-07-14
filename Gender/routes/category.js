@@ -30,10 +30,17 @@ router.get('/', function(req, res, next) {
 
 router.get('/back/:id', function(req, res, next) {
      query.categoryBack(req.params.id,function(cat){
-        query.getAttachmentByCategory(req.params.current,function(inf){
-            res.json({categories:cat,info:inf,parentCategory:cat[0].parentCategory}); 
-      });
-         
+         if(cat[0].parentCategory!=null){
+                query.getAttachmentByCategory(cat[0].parentCategory,function(inf){
+                    res.json({categories:cat,info:inf,parentCategory:cat[0].parentCategory}); 
+              });
+         }else{
+             
+              query.getAllAttachment(function(data2){ 
+               res.json({categories:cat,info:data2,parentCategory:null});
+              });
+      
+         }
      })
     
 });
