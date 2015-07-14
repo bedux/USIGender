@@ -98,7 +98,6 @@ exports.getAllSubcategoryOfCategory = function(category,callbackVero){
 exports.categoryBack=function(id,callback){
     CategorySchema.findOne({_id:id},function(err,data){
             if(err){error(err,callback);return;};
-         console.log(data.parentCategory);
             CategorySchema.find({parentCategory:data.parentCategory},function(err,result){
                 if(err)error(err,callback);
                 callback(result);
@@ -186,6 +185,22 @@ exports.getAllRootForumCategory = function(callback){
 }
 
 
+exports.categoryForumBack=function(id,callback){
+    ForumCategorySchema.findOne({_id:id},function(err,data){
+            if(err){error(err,callback);return;};
+            ForumCategorySchema.find({parentCategory:data.parentCategory},function(err,result){
+                if(err)error(err,callback);
+                callback(result);
+            });
+        
+
+        
+    });
+    
+}
+
+
+
 //--------------------USER-----------------------------------------------------------
 
 
@@ -224,9 +239,9 @@ exports.addNewDiscussion = function(title,object,forumCategory,user,callback){
         
     });
 }
-exports.getAllDiscussion = function(callback){
+exports.getDiscussionByCategory = function(id,callback){
     
-    DiscussionSchema.find({}).populate('user ').exec(function(err,data){
+    DiscussionSchema.find({forumCategory:id}).populate('user').exec(function(err,data){
         if(err){error(err,callback);return;};
         callback(data);
     });
@@ -255,7 +270,16 @@ exports.getAllDiscussion = function(callback){
         callback(data);
     });
 }
+
+exports.getDiscussionById = function(id,callback){
+    
+    DiscussionSchema.findOne({_id:id}).populate('user').exec(function(err,data){
+        if(err){console.error(err);callback(err); return;}
+        callback(data);
+    });
+}
                                             
+
 
 //--------------------REPLY -----------------------------------------------------------
 
@@ -266,7 +290,7 @@ exports.addNewReply = function(message,user,attachments,discussion,callback){
     });   
 }
 
-exports.getlReplyOfDiscussion = function(discussion,calback){
+exports.getlReplyOfDiscussion = function(discussion,callback){
     ReplySchema.find({discussion:discussion}).populate("attachments user").exec(function(err,data){
         if(err){error(err,callback);return;};
         callback(data);     
@@ -381,7 +405,7 @@ exports.getAllInfoByCategory = function(category,callback){
 //return all the info of belong to a category and a sub category!
 exports.getAllDiscussionByForumCategory = function(category,callback){
     exports.getAllSubForumCategoryOfCategory(category,function(data){
-        DiscussionSchema.find({forumCategory:{"$in":data}}).exec(function(err,result){
+        DiscussionSchema.find({forumCategory:{"$in":data}}).populate("user").exec(function(err,result){
             callback(result);
         
        

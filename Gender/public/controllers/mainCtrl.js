@@ -18,6 +18,12 @@ myApp.config( function($routeProvider) {
         templateUrl: 'models/calendarPage.html',
         //controller: 'PhoneListCtrl'
       })
+    .when('/discussion/:id', {
+        templateUrl: 'models/discussionPage.html',
+        //controller: 'PhoneListCtrl'
+        controller: 'discussionCTRL'
+
+      })
         .otherwise({
         redirectTo: '/craigslist'
       });

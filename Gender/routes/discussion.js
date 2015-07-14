@@ -5,7 +5,13 @@ var query = require('../database/dbQuery');
 /* GET home page. */
 router.get('/:current', function(req, res, next) {
   
-    
+    query.getlReplyOfDiscussion(req.params.current,function(data){
+        query.getDiscussionById(req.params.current,function(disc){
+            res.json({discussion:disc,reply:data});
+            
+        })
+        
+    });
 });
 
 
