@@ -15,6 +15,7 @@ var discussion = require('./routes/discussion');
 var attachment = require('./routes/attachment');
 var address = require('./routes/address');
 var user = require('./routes/user');
+var reply = require('./routes/reply');
 
 
 var attachment = require('./routes/attachment');
@@ -49,6 +50,7 @@ app.use('/discussion', discussion);
 app.use('/user', user);
 app.use('/attachment',attachment);
 app.use('/address', address);
+app.use('/reply', reply);
 
 
 // catch 404 and forward to error handler

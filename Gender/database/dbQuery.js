@@ -241,7 +241,7 @@ exports.addNewDiscussion = function(title,object,forumCategory,user,callback){
 }
 exports.getDiscussionByCategory = function(id,callback){
     
-    DiscussionSchema.find({forumCategory:id}).populate('user').exec(function(err,data){
+    DiscussionSchema.find({forumCategory:id}).populate('user forumCategory').exec(function(err,data){
         if(err){error(err,callback);return;};
         callback(data);
     });
@@ -265,7 +265,7 @@ exports.discussionUpdate = function(id,param,callback){
 }
 
 exports.getAllDiscussion = function(callback){   
-    DiscussionSchema.find({}).populate('user').exec(function(err,data){
+    DiscussionSchema.find({}).populate('user forumCategory').exec(function(err,data){
         if(err){console.error(err);callback(err); return;}
         callback(data);
     });
@@ -273,7 +273,7 @@ exports.getAllDiscussion = function(callback){
 
 exports.getDiscussionById = function(id,callback){
     
-    DiscussionSchema.findOne({_id:id}).populate('user').exec(function(err,data){
+    DiscussionSchema.findOne({_id:id}).populate('user forumCategory').exec(function(err,data){
         if(err){console.error(err);callback(err); return;}
         callback(data);
     });
@@ -284,9 +284,10 @@ exports.getDiscussionById = function(id,callback){
 //--------------------REPLY -----------------------------------------------------------
 
 exports.addNewReply = function(message,user,attachments,discussion,callback){
-    var rep = new ReplySchema({message:message,user:user,discussion:discussion,attachments:attachments,data:Date.now},function(err,saved){
+    var rep = new ReplySchema({message:message,user:user,discussion:discussion,attachments:attachments,data:Date.now()});
+    rep.save(function(err,saved){
         if(err){error(err,callback);return;};
-        callback(data);
+        callback(saved);
     });   
 }
 
@@ -297,7 +298,7 @@ exports.getlReplyOfDiscussion = function(discussion,callback){
     });
 }
 
-exports.getAlllReply= function(discussion,calback){
+exports.getAlllReply= function(callback){
     ReplySchema.find({}).populate("attachments user").exec(function(err,data){
         if(err){error(err,callback);return;};
         callback(data);     
