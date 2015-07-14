@@ -30,7 +30,16 @@ myApp.config( function($routeProvider) {
   });
 
 
-
+myApp.directive('attachmentItem', function(){
+    return{
+        restrict: 'E',
+        scope:{
+            itemData : '=itemData',
+            type: '=type' // mandatory if not define in itemdata
+        },
+        templateUrl:'../models/attachmentPage.html',
+    };
+});
 
 myApp.controller('mainCtrl', ['$scope', function($scope) {
 	$scope.categories = ['cane', 'gattosdsddsda', 'gallina', 'topo','cinghiale','gorilla'];
