@@ -1,16 +1,16 @@
 <div style='margin-bottom:16px;'>
     <!-- Colored raised button -->
     <div>
-<button class="mdl-button mdl-js-button mdl-js-ripple-effect" 
-        ng-click="clicksd()" ng-disabled='craig.prev == null'>
-    <i class="material-icons">undo</i>
-  back
-</button>
+        <button class="mdl-button mdl-js-button mdl-js-ripple-effect"
+                ng-click="clickBack()" ng-disabled='craig.prev == null'>
+            <i class="material-icons">undo</i>
+            back
+        </button>
+    </div>
 
-</div>
- 
-    <div ng-repeat="n in craig.categories" class="mdl-shadow--2dp categories" ng-click="chooseCategry($index)">
-        
+    <!-- blue cards  -->
+    <div ng-repeat="n in craig.categories" class="mdl-shadow--2dp categories"
+         ng-click="chooseCategry($index)">
         <i class="material-icons md-48" >{{n.icon || 'work'}}</i>
         <div class='cardName' >    
             {{ n.name | limitTo: 11 }}{{n.name.length > 11 ? '...' : ''}}
@@ -19,15 +19,24 @@
     <div style="clear:both;"></div>
     
     
-    <hr>
+    <hr id='scroll'>
+    <section id="addAttachmentSection" ng-show="addSectionVisibility">
+        <add-attachment></add-attachment>
+    </section>
     
-
+    <!-- list -->
     <ul class="craigsList">
         <li ng-repeat="info in craig.info" >
             <attachment-item item-data="info"></attachment-item>
         </li>
  
     </ul>
+
+    <!--  FAB  -->
+    <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect
+                   mdl-button--colored fixedButton" ng-click="addAttachmentToggle()">
+        <i class="material-icons">{{fabIcon}}</i>
+    </button>
 
 </div>
 

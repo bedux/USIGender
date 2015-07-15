@@ -41,6 +41,14 @@ myApp.directive('attachmentItem', function(){
     };
 });
 
+
+myApp.directive('addAttachment', function(){
+    return{
+        restrict: 'E',
+        templateUrl:'../models/addAttachmentPage.html',
+    };
+});
+
 myApp.controller('mainCtrl', ['$scope', function($scope) {
 	$scope.categories = ['cane', 'gattosdsddsda', 'gallina', 'topo','cinghiale','gorilla'];
 
