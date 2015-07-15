@@ -7,8 +7,8 @@ myApp.controller('craigCTRL', function($scope,$http) {
     $scope.fabIcon = 'add';
     $scope.chooseTypeVisibility = true;
     $scope.typeChose='';
-    
-    
+    $scope.attachment={};
+    $scope.craig.info = [];
     
     updateList = function(path){
         $http.get(path).
@@ -68,4 +68,19 @@ myApp.controller('craigCTRL', function($scope,$http) {
         }
     }
 
+    $scope.postAttachment= function(attachment, type){
+        attachment.type = type;
+        // Simple POST request example (passing data) :
+        $http.post('/attachment', attachment).
+          success(function(data, status, headers, config) {
+            console.log(data);
+            $scope.craig.info.push(data);
+            
+          }).
+          error(function(data, status, headers, config) {
+            // called asynchronously if an error occurs
+            // or server returns response with an error status.
+            console.log(data);
+          });
+    }
 });
