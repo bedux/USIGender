@@ -152,11 +152,7 @@ body{
     
     width: 45px;
     height: 45px;
-        margin-left: 20px;
-    margin-right: 20px;
-    margin-top: 13px;
-    margin-bottom:13px;
-
+   
 }
 
 .discQWSTdiv{
@@ -165,6 +161,7 @@ body{
     background-color: white;
     width: 100%;
     height: 71px;
+    
     border-bottom: solid;
         border-bottom-width: 1px;
 
@@ -205,6 +202,7 @@ body{
     background-color: white;
     min-height: 80px;
     justify-content:space-between;
+    margin-bottom: 40px;
 }
 
 
@@ -226,31 +224,48 @@ body{
 }
 
 
+
+
+
 .replyDisc{
-    
-    display: block;
     width: 100%;
     height: 100%;
-    margin-top: 30px;
-    margin-bottom: 30px;
+    display: flex;
+    
     
 }
 
 
 
-.textReply{
-    align-self:center;
-    background-color: white;
+.textReply{        
     width: 100%;
-display: inline;
-    
+    padding: 20px;
+    margin-top:0px;
+    margin-bottom: 20px;
+    background-color: white;
     
 }
+
 
 
 .userImgTPR{
-    display: inline;
-    
-    background-color: transparent;
+   display: flex;
+    flex-direction: column;
+       margin-right: 10px;
+
+     
 }
 
+.verticalLine {
+    width:50%;
+    border-right: thick solid #919191;
+    flex-grow: 1;
+    flex-shrink: 1;
+
+}
+
+.dataText{
+    text-align: center;
+    width: 100;
+    font-size: 10px;
+}

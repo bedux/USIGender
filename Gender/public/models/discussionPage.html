@@ -21,11 +21,19 @@
     
     <div >
     <div class="replyDisc" ng-repeat="rep in data.reply" >
-        <div class="userImgTPR">    <img  class="discImgQST inLineELem" ng-src="   {{data.discussion.user.imageSRC}}"/>
+        <div class="userImgTPR">    
+
+            <img  class="discImgQST" ng-src="   {{data.discussion.user.imageSRC}}"/>
+                        <div class="dataText"> {{rep.data|date : 'MMM d' : '+0100'}}</div>          
+
+            <div class="verticalLine"></div>          
 
         </div>  
         <div class="textReply">
-                    {{rep.message}}
+             {{rep.user.name}} said:<br/>
+            <br/>
+            <br/>
+                {{rep.message}}
         </div>     
         
 
