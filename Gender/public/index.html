@@ -100,31 +100,15 @@
         <section id='mainContainer'>
 
             <aside >
-                <p>Categories</p>
+                <p>Type</p>
                 <div ng-repeat="category in categories track by $index" >
                     <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect margin-bt" for="{{category}}">
-                        <input type="checkbox" id="{{category}}" class="mdl-checkbox__input"  />
+                        <input type="checkbox" id="{{category}}" class="mdl-checkbox__input"  ng-click="includeType(category)" />
                         <span class="mdl-checkbox__label checkbox fontResizable" >{{category}}</span>
                         <span class="float-r fontResizable">123</span>
                     </label>
                 </div>
-<!--
-                    <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">
-                      <thead>
-                        <tr>
-                          <th class="mdl-data-table__cell--non-numeric">categories</th>
-                          <th>results</th> 
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr ng-repeat="category in categories track by $index">
-                          <td class="mdl-data-table__cell--non-numeric">{{category}}</td>
-                          <td>888</td>
-                        </tr>
-                        
-                      </tbody>
-                    </table>
--->
+
             </aside>
             
             

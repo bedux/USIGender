@@ -27,7 +27,7 @@
 <div ng-show="typeChose == 'info'">
     <h4>Add info</h4>
     <form novalidate >
-        <div style="width:60%; margin:auto">
+        <div class='addAttachContainer'>
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label textfield-demo formInput">
                 <input class="mdl-textfield__input" type="text" id="sample3" ng-model='attachment.name'/>
                 <label class="mdl-textfield__label" for="sample3">Title</label>
@@ -68,5 +68,47 @@
 <!-- contact -->
 <div ng-show="typeChose == 'contact'">
     <h4>Add contact</h4>
-    contact
+    <form novalidate >
+    <div class='addAttachContainer'>
+        <div class="mdl-textfield mdl-js-textfield textfield-demo formInput">
+            <input class="mdl-textfield__input" type="text" id="sample1"  placeholder="Name" ng-model='attachment.name'/>
+        </div>
+        
+        <div class="styled-select">
+            <select ng-model="attachment.category" required >
+                <option value="">-- choose category --</option>
+                <option ng-repeat="category in craig.categories" value="{{category._id}}">
+                    {{category.name}}
+                </option>
+            </select>
+
+        </div>
+        
+        <div class="mdl-textfield mdl-js-textfield textfield-demo formInput">
+            <textarea class="mdl-textfield__input" type="text"  id="sample5" ng-model='attachment.description' ></textarea>
+            <label class="mdl-textfield__label" for="sample5">Description...</label>
+        </div>
+        <div>
+            <div class="mdl-textfield mdl-js-textfield textfield-demo ">
+                <input class="mdl-textfield__input" type="text" id="sample1" pattern="-?[0-9]*(\.[0-9]+)?" ng-model='attachment.phone' />
+                <label class="mdl-textfield__label" for="sample2">Phone</label> 
+                <span class="mdl-textfield__error">Input is not a number!</span>
+            </div>
+            <div class="mdl-textfield mdl-js-textfield textfield-demo ">
+                <input class="mdl-textfield__input" type="text" id="sample1" pattern="-?[0-9]*(\.[0-9]+)?" ng-model='attachment.cellPhone' />
+                <label class="mdl-textfield__label" for="sample2">Mobile Phone</label> 
+                <span class="mdl-textfield__error">Input is not a number!</span>
+            </div>  
+        </div>
+        <div class="mdl-textfield mdl-js-textfield textfield-demo formInput ">
+            <input class="mdl-textfield__input" type="text" id="sample1"  ng-model='attachment.mail' />
+            <label class="mdl-textfield__label" for="sample2">E-mail</label> 
+        </div>
+        <br>
+        <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored"
+                ng-click="postAttachment(attachment, 'contact')">
+            Submit
+        </button>
+    </div>
+    </form>
 </div>

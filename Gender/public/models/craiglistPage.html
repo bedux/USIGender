@@ -26,7 +26,7 @@
     
     <!-- list -->
     <ul class="craigsList">
-        <li ng-repeat="info in craig.info" >
+        <li ng-repeat="info in craig.info | filter:typeFilter" >
             <attachment-item item-data="info"></attachment-item>
         </li>
  

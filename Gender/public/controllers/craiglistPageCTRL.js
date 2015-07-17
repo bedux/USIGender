@@ -1,5 +1,5 @@
 
-myApp.controller('craigCTRL', function($scope,$http) {
+myApp.controller('craigCTRL', function($scope,$http, $rootScope) {
     $scope.craig= {};
 
     $scope.craig.prev = null;
@@ -83,4 +83,15 @@ myApp.controller('craigCTRL', function($scope,$http) {
             console.log(data);
           });
     }
+    
+    $scope.typeFilter = function(info) {
+        if ($rootScope.typeFilter.length > 0) {
+            if ($.inArray(info.type, $rootScope.typeFilter) < 0)
+                return;
+        }
+        
+        return info;
+    }
+    
+
 });

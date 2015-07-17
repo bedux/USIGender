@@ -1,4 +1,7 @@
-var myApp = angular.module('myApp',["ngRoute",'uiGmapgoogle-maps','ui.calendar', 'ui.bootstrap']);
+var myApp = angular.module('myApp',["ngRoute",'uiGmapgoogle-maps','ui.calendar', 'ui.bootstrap'])
+myApp.run(function($rootScope){
+   $rootScope.typeFilter = []; 
+});
 
 myApp.config( function($routeProvider) {
     $routeProvider.
@@ -49,8 +52,8 @@ myApp.directive('addAttachment', function(){
     };
 });
 
-myApp.controller('mainCtrl', ['$scope', function($scope) {
-	$scope.categories = ['cane', 'gattosdsddsda', 'gallina', 'topo','cinghiale','gorilla'];
+myApp.controller('mainCtrl',  function($scope, $rootScope) {
+	$scope.categories = ['place', 'info', 'contact'];
 
 	$scope.changeFontSize = function(step){
 		step = parseInt(step,10);
@@ -67,5 +70,14 @@ myApp.controller('mainCtrl', ['$scope', function($scope) {
         window.location.hash = '/'+path;
     }
 
-}]);
+    $scope.includeType = function(type) {
+        
+        var i = $.inArray(type, $rootScope.typeFilter);
+        if (i > -1) {
+            $rootScope.typeFilter.splice(i, 1);
+        } else {
+            $rootScope.typeFilter.push(type);
+        }
+    }
+});
 
