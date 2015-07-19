@@ -4,7 +4,8 @@
     <span  class="base"><span class="titleDisc" >{{data.discussion.title}}</span>
       <span  class=" someMargin"> by {{data.discussion.user.name}}  </span>
     </span>
-    <span class="rightReply"><i class="material-icons">reply</i>ADD A REPLY</span>
+    <span class="rightReply" ng-click="checked=!checked">
+    <i class="material-icons">reply</i>ADD A REPLY</span>
 </div>
 <div class="questionContent">
     <div class="obj">
@@ -17,7 +18,17 @@
     </span>
 </div>
     
-    
+    <div class="textRepDiv " ng-hide="checked">
+        
+         <div class="container app">
+          <div text-angular="text-angular" name="htmlcontent" ng-model="htmlcontent" ta-disabled='disabled'>
+             </div>
+        </div>
+        
+       
+        <button ng-click="sendReply()" > <i class="material-icons">send</i></button>
+        
+    </div>
     
     <div >
     <div class="replyDisc" ng-repeat="rep in data.reply" >
@@ -35,8 +46,6 @@
             <br/>
                 {{rep.message}}
         </div>     
-        
-
     </div>
     
 

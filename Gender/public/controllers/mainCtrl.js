@@ -1,4 +1,4 @@
-var myApp = angular.module('myApp',["ngRoute",'uiGmapgoogle-maps','ui.calendar', 'ui.bootstrap'])
+var myApp = angular.module('myApp',["ngRoute",'uiGmapgoogle-maps','ui.calendar', 'ui.bootstrap','textAngular'])
 myApp.run(function($rootScope){
    $rootScope.typeFilter = []; 
 });

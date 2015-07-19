@@ -14,7 +14,8 @@ router.get('/', function(req, res, next) {
 router.post('/', function(req, res, next) {
     
     if(!req.body.attachments){
-              query.addNewReply(req.body.message,req.body.user,null,req.body.discussion,function(data){
+                 console.log(req.body);
+ query.addNewReply(req.body.message,req.body.user,null,req.body.discussion,function(data){
           res.json(data);
       })
     }
