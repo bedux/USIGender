@@ -1,11 +1,5 @@
 
-myApp.config(function(uiGmapGoogleMapApiProvider) {
-    uiGmapGoogleMapApiProvider.configure({
-        //    key: 'your api key',
-        v: '3.17',
-        libraries: 'weather,geometry,visualization,places'
-    });
-})
+
 
 
 myApp.controller('mapsCTRL', function($scope,$http, uiGmapGoogleMapApi) {

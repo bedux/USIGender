@@ -62,7 +62,56 @@
 <!-- place -->
 <div ng-show="typeChose == 'place'">
     <h4>Add place</h4>
-    place
+    <form novalidate >
+    <div class='addAttachContainer'>
+        <div class="mdl-textfield mdl-js-textfield textfield-demo formInput">
+            <input class="mdl-textfield__input" type="text" id="sample1"  placeholder="Title" ng-model='attachment.name'/>
+        </div>
+        
+        <div class="styled-select">
+            <select ng-model="attachment.category" required >
+                <option value="">-- choose category --</option>
+                <option ng-repeat="category in craig.categories" value="{{category._id}}">
+                    {{category.name}}
+                </option>
+            </select>
+        </div>
+        
+        <div class="mdl-textfield mdl-js-textfield textfield-demo formInput">
+            <textarea class="mdl-textfield__input" type="text"  id="sample5" ng-model='attachment.description' ></textarea>
+            <label class="mdl-textfield__label" for="sample5">Description...</label>
+        </div>
+        
+        <p> drag the marker where you want or use the search box</p>
+        <div style="width:100%; min-height: 200px;">
+            <div >
+                <script type="text/ng-template" id="searchbox.tpl.html">
+                    <input type="text" placeholder="Search Box">
+                </script>
+                <ui-gmap-google-map id='craigMap' center='craigMap.center' zoom='craigMap.zoom' options="options2">
+                
+                <ui-gmap-search-box template="searchbox2.template" events="searchbox2.events" parentdiv='searchbox2.parentId'  ></ui-gmap-search-box>
+                <ui-gmap-marker coords="marker.coords" options="marker.options" events="marker.events" idkey="marker.id">
+        </ui-gmap-marker>
+                </ui-gmap-google-map>
+            </div>
+            <div >
+                <div id='craiMapSearch'>
+                
+                </div>
+            
+            </div>
+        
+        
+        </div>    
+        
+        <br>
+         <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored"
+            ng-click="postAttachment(attachment, 'place')">
+        Submit
+        </button>
+    </div>
+    </form>
 </div>
 
 <!-- contact -->

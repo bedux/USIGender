@@ -3,6 +3,14 @@ myApp.run(function($rootScope){
    $rootScope.typeFilter = []; 
 });
 
+myApp.config(function(uiGmapGoogleMapApiProvider) {
+    uiGmapGoogleMapApiProvider.configure({
+        //    key: 'your api key',
+        v: '3.17',
+        libraries: 'weather,geometry,visualization,places'
+    });
+})
+
 myApp.config( function($routeProvider) {
     $routeProvider.
       when('/craigslist', {

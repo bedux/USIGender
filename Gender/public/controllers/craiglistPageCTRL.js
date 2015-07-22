@@ -1,5 +1,5 @@
 
-myApp.controller('craigCTRL', function($scope,$http, $rootScope) {
+myApp.controller('craigCTRL', function($scope,$http, $log, $rootScope, uiGmapGoogleMapApi) {
     $scope.craig= {};
 
     $scope.craig.prev = null;
@@ -93,5 +93,45 @@ myApp.controller('craigCTRL', function($scope,$http, $rootScope) {
         return info;
     }
     
+    // map
+    $scope.craigMap = { center: { latitude: 46.02651, longitude: 8.85418}, zoom: 12 };
 
+    $scope.options2 = {scrollwheel: true};
+        
+        var events = {
+        places_changed: function (searchBox) {}
+    }
+    $scope.searchbox2 = { template:'searchbox.tpl.html', 
+                         events:events, parentId:'craiMapSearch'};
+        $scope.coordsUpdates = 0;
+    $scope.dynamicMoveCtr = 0;
+    $scope.marker = {
+      id: 0,
+      coords: {
+        latitude: 46.005528779358016,
+        longitude: 8.957176826171917
+      },
+      options: { draggable: true },
+      events: {
+        dragend: function (marker, eventName, args) {
+          $log.log('marker dragend');
+          var lat = marker.getPosition().lat();
+          var lon = marker.getPosition().lng();
+          $log.log(lat);
+          $log.log(lon);
+
+          $scope.marker.options = {
+            draggable: true,
+            labelContent: "lat: " + $scope.marker.coords.latitude + ' ' + 'lon: ' + $scope.marker.coords.longitude,
+            labelAnchor: "100 0",
+            labelClass: "marker-labels"
+          };
+        }
+      }
+    };
+      $scope.$watchCollection("marker.coords", function (newVal, oldVal) {
+      if (_.isEqual(newVal, oldVal))
+        return;
+      $scope.coordsUpdates++;
+    });
 });
