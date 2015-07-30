@@ -1,0 +1,58 @@
+
+<!-- info -->
+<div  ng-show="itemData.type == 'info' || type == 'info'" class="listType">
+    <div class="listIcon"> <i class="material-icons">work</i></div>
+    <div class="listText">
+        <div class="title fontResizable "> {{itemData.name}}  </div>
+        <div class="description fontResizable ">Il cricket è uno sport di squadra praticato con mazza, palla e guantone (del wicket keeper-ricevitore) giocato fra due gruppi di undici giocatori ciascuno ed è il secondo gioco più seguito del mondo </div>
+    </div>
+    <div class='listInfo'>
+        7/10 
+        <button class="mdl-button mdl-js-button mdl-button--icon">
+          <i class="material-icons">info_outline</i>
+        </button>
+    </div>
+</div>
+
+<!-- place -->
+ <div   ng-show="itemData.type == 'place' || type == 'place'" class="listType">
+    <div class="listIcon"> <i class="material-icons">work</i></div>
+    <div class="listText">
+        <div class="title fontResizable"> {{itemData.name}}  </div>
+        <div class='inlinebox'>
+<!--            <img ng-src="http://www.brandeis.edu/about/images/newformat/map2.jpg" class="craigImage">-->
+        </div>
+        <div class='inlinebox' >
+            <div class="infoMap fontResizable ">telephone: {{itemData.phone}}</div>
+            <div class="infoMap fontResizable ">opening hour: 10am - 3pm</div>
+        </div>
+     </div>
+
+    <div class='listInfo'>
+        8/10
+        <button class="mdl-button mdl-js-button mdl-button--icon ">
+          <i class="material-icons">info_outline</i>
+        </button>
+    </div>
+</div>
+
+<!-- contact -->
+
+<div   ng-show="itemData.type == 'contact' || type == 'contact'" class="listType">
+    <div class="listIcon"> <img ng-src='../images/defaultUser.png' class="contactIcon"></div>
+    <div class="listText">
+         <div class="title fontResizable"> {{itemData.name }}  </div>
+        <div class="contactDescription fontResizable"> The best doctor in Lugano</div>
+        <div class="floatInfo"><i class="material-icons">call</i> <span>+39 0986785471</span></div>
+        <div class="floatInfo"><i class="material-icons">business</i> <span>+39 0986785471</span></div>
+        <div class="floatInfo"><i class="material-icons">stay_current_portrait</i> <span>+39 0986785471</span></div>
+        <div class="floatInfo"><i class="material-icons">email</i> <span>ravazm@usi.ch</span></div>
+       
+    </div>
+    <div class='listInfo'>
+        8/10
+        <button class="mdl-button mdl-js-button mdl-button--icon ">
+          <i class="material-icons">info_outline</i>
+        </button>
+    </div>
+</div>
