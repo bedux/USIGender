@@ -1,0 +1,58 @@
+
+<div  class="discQWSTdiv">
+    <img  class="discImgQST inLineELem" ng-src="{{data.discussion.user.imageSRC}}"/>
+    <span  class="base"><span class="titleDisc" >{{data.discussion.title}}</span>
+        <span  class=" someMargin"> by {{data.discussion.user.name}}  </span>
+    </span>
+    <span class="rightReply" ng-click="checked=!checked">
+        <i class="material-icons">reply</i>ADD A REPLY</span>
+</div>
+<div class="questionContent">
+    <div class="obj">
+        {{data.discussion.object}}
+    </div>
+    <span class="footerDiv">Categories: <span class="green">{{data.discussion.forumCategory.name}}</span>
+
+        <span class="infoFooterQST">
+            Views:{{data.discussion.view}}     Posts{{data.discussion.response}}
+        </span>
+        </div>
+
+    <div class="textRepDiv" ng-hide="checked">
+
+        <div class="container app">
+            <div text-angular="text-angular" name="htmlcontent" ng-model="htmlcontent" ta-disabled='disabled'
+                 ta-toolbar="[['h1','h2','h3'],['bold','italics','colourRed']]"
+                 >
+            </div>
+        </div>
+
+
+        <button ng-click="sendReply()" > <i class="material-icons">send</i></button>
+
+    </div>
+
+    <div >
+        <div class="replyDisc" ng-repeat="rep in data.reply" >
+            <div class="userImgTPR">    
+
+                <img  class="discImgQST" ng-src="   {{data.discussion.user.imageSRC}}"/>
+                <div class="dataText"> {{rep.data|date : 'MMM d' : '+0100'}}</div>      
+
+                <div class="verticalLine"></div>          
+
+            </div>  
+            <div class="textReply">
+                {{rep.user.name}} said:<br/>
+                <br/>
+                <br/>
+                
+                <div ng-bind-html="getHTML(rep.message)"></div>
+
+            </div>     
+        </div>
+
+
+
+
+

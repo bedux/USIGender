@@ -1,3 +1,5 @@
 **/Gender/node_modules/**
 Gender/public/bower_components/**
 Gender/public/bower_components/angular-route/**
+
+node_modules/**

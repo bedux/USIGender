@@ -1,8 +1,8 @@
 
 
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/test');
-
+var mongoUrl = process.env.OPENSHIFT_MONGODB_DB_URL || 'mongodb://localhost/test';
+mongoose.connect(mongoUrl);
 //list all module
 require('./module/category');
 require('./module/forumCategory');

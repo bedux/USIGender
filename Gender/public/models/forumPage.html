@@ -1,0 +1,57 @@
+<div  style='margin-bottom:16px;'>
+    <!-- Colored raised button -->
+    <div>
+<button class="mdl-button mdl-js-button mdl-js-ripple-effect" 
+        ng-click="clicksd()" ng-disabled='data.prev==null'>
+    <i class="material-icons">undo</i>
+  back
+</button>
+
+</div>
+ 
+    <div ng-repeat="n in data.categories" class="mdl-shadow--2dp categories" ng-click="chooseCategry($index)">
+        
+        <i class="material-icons md-48" >{{n.icon || 'work'}}</i>
+        <div class='cardName' >    
+            {{ n.name | limitTo: 11 }}{{n.name.length > 11 ? '...' : ''}}
+        </div>
+    </div>
+    <div style="clear:both;"></div>
+    <hr>
+
+
+
+
+
+
+
+
+
+<div >
+    <div class="block" ng-repeat="post in data.info" ng-click="clickDiscussion($index)"> 
+        <div class="postUserPart" >
+            <img  class="postImageUser" ng-src="{{post.user.imageSRC}}"/>
+        </div>
+        
+         <div class="postTitlePart" >
+             <h3>{{post.title}}</h1>
+            <p>{{ post.object | limitTo: 400 }}{{post.object.length > 400 ? '[...]' : ''}}</p>
+
+        </div>
+         <div class="postInfoPart" >
+             <div class="postRespDiv">
+             <p class="infoRespP fontInfo">{{post.response}}</p>
+             </div>
+            <hr>
+             <span><img  class="imgView" src="../images/VIewInfo.png">
+                 <p class="infoViewP ">{{post.view}}</p></span>
+              <hr>
+             <span><img  class="imgView" src="../images/TimeInfo.png">
+                 <p class="infoViewP">{{post.lastView | date: 'MMM d' }}</p></span>
+
+              <hr>
+
+        </div>
+        </div>
+  </div>
+    
