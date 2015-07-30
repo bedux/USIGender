@@ -1,146 +1,144 @@
 <!doctype html>
 <html  ng-app="myApp">
-<head>
-    <title>USI Gender</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    
-    <link rel='stylesheet prefetch' href='http://netdna.bootstrapcdn.com/bootstrap/3.0.1/css/bootstrap.min.css'>
-    
-    <script src="bower_components/angular/angular.min.js"></script>
-    <link rel="stylesheet" href="stylesheets/mdl/material.min.css">
-    <script src="stylesheets/mdl/material.min.js"></script>
-    <link rel="stylesheet" href="stylesheets/style.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <script src="bower_components/angular-route/angular-route.min.js"></script>
-    <link rel="stylesheet" href="stylesheets/forumStyle.css">
-    
-    
-    <!-- calendar  -->
-  
-    
-    <script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.13.0.js"></script>
-    <link rel="stylesheet" href="bower_components/fullcalendar/dist/fullcalendar.css"/>
-    <script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
-    <script type="text/javascript" src="bower_components/moment/min/moment.min.js"></script>
-    <script type="text/javascript" src="bower_components/angular-ui-calendar/src/calendar.js"></script>
-    <script type="text/javascript" src="bower_components/fullcalendar/dist/fullcalendar.min.js"></script>
-    <script type="text/javascript" src="bower_components/fullcalendar/dist/gcal.js"></script>
-    
-    <!--TEXT EDITOR-->
-    
-     <script src='http://cdnjs.cloudflare.com/ajax/libs/textAngular/1.1.2/textAngular.min.js'></script>
-    
-    
-      <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.2.4/angular-sanitize.min.js'></script>
-    
-    
-      
-<link rel='stylesheet prefetch' href='http://netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.min.css'>
+    <head>
+        <title>USI Gender</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    
-    
-    <!--  maps  -->
-    <script src="scripts/lodash.min.js"></script>
-    <script src="scripts/angular-google-maps.min.js"></script>
- 
-    <!-- angular controllers  -->
-    <script src="controllers/mainCtrl.js"></script>
-    <script src="controllers/craiglistPageCTRL.js"></script>
-    <script src="controllers/forumPageCTR.js"></script>
-    <script src="controllers/mapsPageCTRL.js"></script>
+        <link rel='stylesheet prefetch' href='http://netdna.bootstrapcdn.com/bootstrap/3.0.1/css/bootstrap.min.css'>
+
+        <script src="bower_components/angular/angular.min.js"></script>
+        <link rel="stylesheet" href="stylesheets/mdl/material.min.css">
+        <script src="stylesheets/mdl/material.min.js"></script>
+        <link rel="stylesheet" href="stylesheets/style.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <script src="bower_components/angular-route/angular-route.min.js"></script>
+        <link rel="stylesheet" href="stylesheets/forumStyle.css">
+
+
+        <!-- calendar  -->
+
+
+        <script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.13.0.js"></script>
+        <link rel="stylesheet" href="bower_components/fullcalendar/dist/fullcalendar.css"/>
+        <script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
+        <script type="text/javascript" src="bower_components/moment/min/moment.min.js"></script>
+        <script type="text/javascript" src="bower_components/angular-ui-calendar/src/calendar.js"></script>
+        <script type="text/javascript" src="bower_components/fullcalendar/dist/fullcalendar.min.js"></script>
+        <script type="text/javascript" src="bower_components/fullcalendar/dist/gcal.js"></script>
+
+        <!--TEXT EDITOR-->
+
+        <script src='http://cdnjs.cloudflare.com/ajax/libs/textAngular/1.1.2/textAngular.min.js'></script>
+
+
+        <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.2.4/angular-sanitize.min.js'></script>
+
+        <link rel='stylesheet prefetch' href='http://netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.min.css'>
+
+
+
+        <!--  maps  -->
+        <script src="scripts/lodash.min.js"></script>
+        <script src="scripts/angular-google-maps.min.js"></script>
+
+        <!-- angular controllers  -->
+        <script src="controllers/mainCtrl.js"></script>
+        <script src="controllers/craiglistPageCTRL.js"></script>
+        <script src="controllers/forumPageCTR.js"></script>
+        <script src="controllers/mapsPageCTRL.js"></script>
         <script src="controllers/discussionCTRL.js"></script>
-            <script src="controllers/calendarPageCTRL.js"></script>
-</head>
+        <script src="controllers/calendarPageCTRL.js"></script>
+    </head>
 
-</head>
-    
- <body ng-controller="mainCtrl">
+    </head>
+
+<body ng-controller="mainCtrl">
     <!-- Simple header with fixed tabs. -->
     <div class="mdl-layout mdl-js-layout mdl-layout--overlay-drawer-button mdl-layout--fixed-header
                 mdl-layout--fixed-tabs">
-      <header class="mdl-layout__header">
-        <div class="mdl-layout__header-row">
-          <!-- Title -->
-            
-          <span class="mdl-layout-title">USI Gender</span>
-          <i class="material-icons" id='searchIcon'>search</i>
+        <header class="mdl-layout__header">
+            <div class="mdl-layout__header-row">
+                <!-- Title -->
 
-           <input id="searchBar" type="search" placeholder='search'>
-           <nav class="mdl-navigation">
-               
-        <button id="menu-speed" class="mdl-button mdl-js-button mdl-button--icon">
-            <i class="material-icons">language</i>
-        </button>
-        <ul class="mdl-menu mdl-js-menu" for="menu-speed">
-            <li class="mdl-menu__item">italiano</li>
-            <li class="mdl-menu__item">english</li>
-        </ul>
-        <button  class="mdl-button mdl-js-button mdl-button--icon" ng-click="changeFontSize(-2)">
-            <i class="material-icons" style="font-size:0.6em;">text_format</i>        
-        </button>
-        <button  class="mdl-button mdl-js-button mdl-button--icon" ng-click="changeFontSize(2)">
-            <i class="material-icons">text_format</i>        
-        </button>
-     
+                <span class="mdl-layout-title">USI Gender</span>
+                <i class="material-icons" id='searchIcon'>search</i>
 
-      </nav>
-        </div>
-          
-        <!-- Tabs -->
-        <div class="mdl-layout__tab-bar mdl-js-ripple-effect">  
-          <a href="#fixed-tab-1" ng-click="path('craigslist')" class="mdl-layout__tab is-active">craigslist</a> 
-          <a href="#fixed-tab-2" ng-click="path('forum')" class="mdl-layout__tab">forum</a>
-          <a href="#fixed-tab-3" ng-click="path('maps')" class="mdl-layout__tab">maps</a>
-          <a href="#fixed-tab-4" ng-click="path('calendar')" class="mdl-layout__tab">calendar</a>
-        </div>
-      </header>
-     
-      <div class="mdl-layout__content backgroundColor" >
-        <section class="mdl-layout__tab-panel is-active" id="fixed-tab-1"> 
-            
-        </section>
-        <section class="mdl-layout__tab-panel" id="fixed-tab-2">
-            
-        </section>
-        <section class="mdl-layout__tab-panel" id="fixed-tab-3">
-        </section>
-        <section class="mdl-layout__tab-panel" id="fixed-tab-4">
-            
-        </section>
-          
-          
-        <section id='mainContainer'>
+                <input id="searchBar" type="search" placeholder='search'>
+                <nav class="mdl-navigation">
 
-            <aside >
-                <p>Type</p>
-                <div ng-repeat="category in categories track by $index" >
-                    <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect margin-bt" for="{{category}}">
-                        <input type="checkbox" id="{{category}}" class="mdl-checkbox__input"  ng-click="includeType(category)" />
-                        <span class="mdl-checkbox__label checkbox fontResizable" >{{category}}</span>
-                        <span class="float-r fontResizable">123</span>
-                    </label>
-                </div>
+                    <button id="menu-speed" class="mdl-button mdl-js-button mdl-button--icon">
+                        <i class="material-icons">language</i>
+                    </button>
+                    <ul class="mdl-menu mdl-js-menu" for="menu-speed">
+                        <li class="mdl-menu__item">italiano</li>
+                        <li class="mdl-menu__item">english</li>
+                    </ul>
+                    <button  class="mdl-button mdl-js-button mdl-button--icon" ng-click="changeFontSize(-2)">
+                        <i class="material-icons" style="font-size:0.6em;">text_format</i>        
+                    </button>
+                    <button  class="mdl-button mdl-js-button mdl-button--icon" ng-click="changeFontSize(2)">
+                        <i class="material-icons">text_format</i>        
+                    </button>
 
-            </aside>
-            
-            
-            <section id="pageContainer">
-                
-                <div ng-view class="ngWiewMy">
 
-                </div>
+                </nav>
+            </div>
+
+            <!-- Tabs -->
+            <div class="mdl-layout__tab-bar mdl-js-ripple-effect">  
+                <a href="#fixed-tab-1" ng-click="path('craigslist')" class="mdl-layout__tab is-active">craigslist</a> 
+                <a href="#fixed-tab-2" ng-click="path('forum')" class="mdl-layout__tab">forum</a>
+                <a href="#fixed-tab-3" ng-click="path('maps')" class="mdl-layout__tab">maps</a>
+                <a href="#fixed-tab-4" ng-click="path('calendar')" class="mdl-layout__tab">calendar</a>
+            </div>
+        </header>
+
+        <div class="mdl-layout__content backgroundColor" >
+            <section class="mdl-layout__tab-panel is-active" id="fixed-tab-1"> 
 
             </section>
-        
-            
-          
-        </section>
-          
-      </div>
+            <section class="mdl-layout__tab-panel" id="fixed-tab-2">
+
+            </section>
+            <section class="mdl-layout__tab-panel" id="fixed-tab-3">
+            </section>
+            <section class="mdl-layout__tab-panel" id="fixed-tab-4">
+
+            </section>
+
+
+            <section id='mainContainer'>
+
+                <aside >
+                    <p>Type</p>
+                    <div ng-repeat="category in categories track by $index" >
+                        <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect margin-bt" for="{{category}}">
+                            <input type="checkbox" id="{{category}}" class="mdl-checkbox__input"  ng-click="includeType(category)" />
+                            <span class="mdl-checkbox__label checkbox fontResizable" >{{category}}</span>
+                            <span class="float-r fontResizable">123</span>
+                        </label>
+                    </div>
+
+                </aside>
+
+
+                <section id="pageContainer">
+
+                    <div ng-view class="ngWiewMy">
+
+                    </div>
+
+                </section>
+
+
+
+            </section>
+
+        </div>
     </div>
 
-  </body>  
-    
-    
+</body>  
+
+
 </html>
